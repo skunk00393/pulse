@@ -29,16 +29,40 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
+
+    /**
+     * <code>string timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <code>string timestamp = 3;</code>
+     * @return The bytes for timestamp.
+     */
+    com.google.protobuf.ByteString
+        getTimestampBytes();
   }
   /**
    * Protobuf type {@code pulse.Sensor}
@@ -62,7 +86,9 @@ public final class Messages {
       super(builder);
     }
     private Sensor() {
+      id_ = "";
       name_ = "";
+      timestamp_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -78,11 +104,50 @@ public final class Messages {
               com.pulse.messages.Messages.Sensor.class, com.pulse.messages.Messages.Sensor.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object name_ = "";
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -99,7 +164,7 @@ public final class Messages {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -111,6 +176,45 @@ public final class Messages {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object timestamp_ = "";
+    /**
+     * <code>string timestamp = 3;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timestamp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string timestamp = 3;</code>
+     * @return The bytes for timestamp.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTimestampBytes() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timestamp_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -131,8 +235,14 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+      }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, name_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, name_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timestamp_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, timestamp_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -143,8 +253,14 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, name_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, name_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timestamp_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, timestamp_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -161,8 +277,12 @@ public final class Messages {
       }
       com.pulse.messages.Messages.Sensor other = (com.pulse.messages.Messages.Sensor) obj;
 
+      if (!getId()
+          .equals(other.getId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
+      if (!getTimestamp()
+          .equals(other.getTimestamp())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -174,8 +294,12 @@ public final class Messages {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -307,7 +431,9 @@ public final class Messages {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
+        id_ = "";
         name_ = "";
+        timestamp_ = "";
         return this;
       }
 
@@ -342,7 +468,13 @@ public final class Messages {
       private void buildPartial0(com.pulse.messages.Messages.Sensor result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestamp_ = timestamp_;
         }
       }
 
@@ -358,9 +490,19 @@ public final class Messages {
 
       public Builder mergeFrom(com.pulse.messages.Messages.Sensor other) {
         if (other == com.pulse.messages.Messages.Sensor.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getTimestamp().isEmpty()) {
+          timestamp_ = other.timestamp_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -390,10 +532,20 @@ public final class Messages {
                 done = true;
                 break;
               case 10: {
-                name_ = input.readStringRequireUtf8();
+                id_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
+              case 18: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                timestamp_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -411,9 +563,81 @@ public final class Messages {
       }
       private int bitField0_;
 
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -429,7 +653,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -446,7 +670,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -454,22 +678,22 @@ public final class Messages {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         name_ = value;
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
         name_ = getDefaultInstance().getName();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -478,7 +702,79 @@ public final class Messages {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         name_ = value;
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timestamp_ = "";
+      /**
+       * <code>string timestamp = 3;</code>
+       * @return The timestamp.
+       */
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timestamp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string timestamp = 3;</code>
+       * @return The bytes for timestamp.
+       */
+      public com.google.protobuf.ByteString
+          getTimestampBytes() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timestamp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        timestamp_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string timestamp = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        timestamp_ = getDefaultInstance().getTimestamp();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string timestamp = 3;</code>
+       * @param value The bytes for timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestampBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        timestamp_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1049,29 +1345,28 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated string names = 1;</code>
-     * @return A list containing the names.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    java.util.List<java.lang.String>
-        getNamesList();
+    java.util.List<com.pulse.messages.Messages.Sensor> 
+        getSensorsList();
     /**
-     * <code>repeated string names = 1;</code>
-     * @return The count of names.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    int getNamesCount();
+    com.pulse.messages.Messages.Sensor getSensors(int index);
     /**
-     * <code>repeated string names = 1;</code>
-     * @param index The index of the element to return.
-     * @return The names at the given index.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    java.lang.String getNames(int index);
+    int getSensorsCount();
     /**
-     * <code>repeated string names = 1;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the names at the given index.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getNamesBytes(int index);
+    java.util.List<? extends com.pulse.messages.Messages.SensorOrBuilder> 
+        getSensorsOrBuilderList();
+    /**
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
+     */
+    com.pulse.messages.Messages.SensorOrBuilder getSensorsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code pulse.SensorList}
@@ -1095,8 +1390,7 @@ public final class Messages {
       super(builder);
     }
     private SensorList() {
-      names_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      sensors_ = java.util.Collections.emptyList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -1112,41 +1406,45 @@ public final class Messages {
               com.pulse.messages.Messages.SensorList.class, com.pulse.messages.Messages.SensorList.Builder.class);
     }
 
-    public static final int NAMES_FIELD_NUMBER = 1;
+    public static final int SENSORS_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private com.google.protobuf.LazyStringArrayList names_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private java.util.List<com.pulse.messages.Messages.Sensor> sensors_;
     /**
-     * <code>repeated string names = 1;</code>
-     * @return A list containing the names.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getNamesList() {
-      return names_;
+    @java.lang.Override
+    public java.util.List<com.pulse.messages.Messages.Sensor> getSensorsList() {
+      return sensors_;
     }
     /**
-     * <code>repeated string names = 1;</code>
-     * @return The count of names.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    public int getNamesCount() {
-      return names_.size();
+    @java.lang.Override
+    public java.util.List<? extends com.pulse.messages.Messages.SensorOrBuilder> 
+        getSensorsOrBuilderList() {
+      return sensors_;
     }
     /**
-     * <code>repeated string names = 1;</code>
-     * @param index The index of the element to return.
-     * @return The names at the given index.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    public java.lang.String getNames(int index) {
-      return names_.get(index);
+    @java.lang.Override
+    public int getSensorsCount() {
+      return sensors_.size();
     }
     /**
-     * <code>repeated string names = 1;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the names at the given index.
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getNamesBytes(int index) {
-      return names_.getByteString(index);
+    @java.lang.Override
+    public com.pulse.messages.Messages.Sensor getSensors(int index) {
+      return sensors_.get(index);
+    }
+    /**
+     * <code>repeated .pulse.Sensor sensors = 1;</code>
+     */
+    @java.lang.Override
+    public com.pulse.messages.Messages.SensorOrBuilder getSensorsOrBuilder(
+        int index) {
+      return sensors_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1163,8 +1461,8 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < names_.size(); i++) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, names_.getRaw(i));
+      for (int i = 0; i < sensors_.size(); i++) {
+        output.writeMessage(1, sensors_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1175,13 +1473,9 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < names_.size(); i++) {
-          dataSize += computeStringSizeNoTag(names_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getNamesList().size();
+      for (int i = 0; i < sensors_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, sensors_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1198,8 +1492,8 @@ public final class Messages {
       }
       com.pulse.messages.Messages.SensorList other = (com.pulse.messages.Messages.SensorList) obj;
 
-      if (!getNamesList()
-          .equals(other.getNamesList())) return false;
+      if (!getSensorsList()
+          .equals(other.getSensorsList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1211,9 +1505,9 @@ public final class Messages {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getNamesCount() > 0) {
-        hash = (37 * hash) + NAMES_FIELD_NUMBER;
-        hash = (53 * hash) + getNamesList().hashCode();
+      if (getSensorsCount() > 0) {
+        hash = (37 * hash) + SENSORS_FIELD_NUMBER;
+        hash = (53 * hash) + getSensorsList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -1346,8 +1640,13 @@ public final class Messages {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        names_ =
-            com.google.protobuf.LazyStringArrayList.emptyList();
+        if (sensorsBuilder_ == null) {
+          sensors_ = java.util.Collections.emptyList();
+        } else {
+          sensors_ = null;
+          sensorsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1374,17 +1673,26 @@ public final class Messages {
       @java.lang.Override
       public com.pulse.messages.Messages.SensorList buildPartial() {
         com.pulse.messages.Messages.SensorList result = new com.pulse.messages.Messages.SensorList(this);
+        buildPartialRepeatedFields(result);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
+      private void buildPartialRepeatedFields(com.pulse.messages.Messages.SensorList result) {
+        if (sensorsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            sensors_ = java.util.Collections.unmodifiableList(sensors_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.sensors_ = sensors_;
+        } else {
+          result.sensors_ = sensorsBuilder_.build();
+        }
+      }
+
       private void buildPartial0(com.pulse.messages.Messages.SensorList result) {
         int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          names_.makeImmutable();
-          result.names_ = names_;
-        }
       }
 
       @java.lang.Override
@@ -1399,15 +1707,31 @@ public final class Messages {
 
       public Builder mergeFrom(com.pulse.messages.Messages.SensorList other) {
         if (other == com.pulse.messages.Messages.SensorList.getDefaultInstance()) return this;
-        if (!other.names_.isEmpty()) {
-          if (names_.isEmpty()) {
-            names_ = other.names_;
-            bitField0_ |= 0x00000001;
-          } else {
-            ensureNamesIsMutable();
-            names_.addAll(other.names_);
+        if (sensorsBuilder_ == null) {
+          if (!other.sensors_.isEmpty()) {
+            if (sensors_.isEmpty()) {
+              sensors_ = other.sensors_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSensorsIsMutable();
+              sensors_.addAll(other.sensors_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.sensors_.isEmpty()) {
+            if (sensorsBuilder_.isEmpty()) {
+              sensorsBuilder_.dispose();
+              sensorsBuilder_ = null;
+              sensors_ = other.sensors_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              sensorsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getSensorsFieldBuilder() : null;
+            } else {
+              sensorsBuilder_.addAllMessages(other.sensors_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -1436,9 +1760,16 @@ public final class Messages {
                 done = true;
                 break;
               case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureNamesIsMutable();
-                names_.add(s);
+                com.pulse.messages.Messages.Sensor m =
+                    input.readMessage(
+                        com.pulse.messages.Messages.Sensor.parser(),
+                        extensionRegistry);
+                if (sensorsBuilder_ == null) {
+                  ensureSensorsIsMutable();
+                  sensors_.add(m);
+                } else {
+                  sensorsBuilder_.addMessage(m);
+                }
                 break;
               } // case 10
               default: {
@@ -1458,115 +1789,244 @@ public final class Messages {
       }
       private int bitField0_;
 
-      private com.google.protobuf.LazyStringArrayList names_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-      private void ensureNamesIsMutable() {
-        if (!names_.isModifiable()) {
-          names_ = new com.google.protobuf.LazyStringArrayList(names_);
+      private java.util.List<com.pulse.messages.Messages.Sensor> sensors_ =
+        java.util.Collections.emptyList();
+      private void ensureSensorsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          sensors_ = new java.util.ArrayList<com.pulse.messages.Messages.Sensor>(sensors_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.pulse.messages.Messages.Sensor, com.pulse.messages.Messages.Sensor.Builder, com.pulse.messages.Messages.SensorOrBuilder> sensorsBuilder_;
+
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public java.util.List<com.pulse.messages.Messages.Sensor> getSensorsList() {
+        if (sensorsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(sensors_);
+        } else {
+          return sensorsBuilder_.getMessageList();
         }
-        bitField0_ |= 0x00000001;
       }
       /**
-       * <code>repeated string names = 1;</code>
-       * @return A list containing the names.
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
        */
-      public com.google.protobuf.ProtocolStringList
-          getNamesList() {
-        names_.makeImmutable();
-        return names_;
+      public int getSensorsCount() {
+        if (sensorsBuilder_ == null) {
+          return sensors_.size();
+        } else {
+          return sensorsBuilder_.getCount();
+        }
       }
       /**
-       * <code>repeated string names = 1;</code>
-       * @return The count of names.
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
        */
-      public int getNamesCount() {
-        return names_.size();
+      public com.pulse.messages.Messages.Sensor getSensors(int index) {
+        if (sensorsBuilder_ == null) {
+          return sensors_.get(index);
+        } else {
+          return sensorsBuilder_.getMessage(index);
+        }
       }
       /**
-       * <code>repeated string names = 1;</code>
-       * @param index The index of the element to return.
-       * @return The names at the given index.
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
        */
-      public java.lang.String getNames(int index) {
-        return names_.get(index);
-      }
-      /**
-       * <code>repeated string names = 1;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the names at the given index.
-       */
-      public com.google.protobuf.ByteString
-          getNamesBytes(int index) {
-        return names_.getByteString(index);
-      }
-      /**
-       * <code>repeated string names = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The names to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNames(
-          int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureNamesIsMutable();
-        names_.set(index, value);
-        bitField0_ |= 0x00000001;
-        onChanged();
+      public Builder setSensors(
+          int index, com.pulse.messages.Messages.Sensor value) {
+        if (sensorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSensorsIsMutable();
+          sensors_.set(index, value);
+          onChanged();
+        } else {
+          sensorsBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated string names = 1;</code>
-       * @param value The names to add.
-       * @return This builder for chaining.
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
        */
-      public Builder addNames(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureNamesIsMutable();
-        names_.add(value);
-        bitField0_ |= 0x00000001;
-        onChanged();
+      public Builder setSensors(
+          int index, com.pulse.messages.Messages.Sensor.Builder builderForValue) {
+        if (sensorsBuilder_ == null) {
+          ensureSensorsIsMutable();
+          sensors_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          sensorsBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>repeated string names = 1;</code>
-       * @param values The names to add.
-       * @return This builder for chaining.
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
        */
-      public Builder addAllNames(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureNamesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, names_);
-        bitField0_ |= 0x00000001;
-        onChanged();
+      public Builder addSensors(com.pulse.messages.Messages.Sensor value) {
+        if (sensorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSensorsIsMutable();
+          sensors_.add(value);
+          onChanged();
+        } else {
+          sensorsBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <code>repeated string names = 1;</code>
-       * @return This builder for chaining.
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
        */
-      public Builder clearNames() {
-        names_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);;
-        onChanged();
+      public Builder addSensors(
+          int index, com.pulse.messages.Messages.Sensor value) {
+        if (sensorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSensorsIsMutable();
+          sensors_.add(index, value);
+          onChanged();
+        } else {
+          sensorsBuilder_.addMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated string names = 1;</code>
-       * @param value The bytes of the names to add.
-       * @return This builder for chaining.
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
        */
-      public Builder addNamesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        ensureNamesIsMutable();
-        names_.add(value);
-        bitField0_ |= 0x00000001;
-        onChanged();
+      public Builder addSensors(
+          com.pulse.messages.Messages.Sensor.Builder builderForValue) {
+        if (sensorsBuilder_ == null) {
+          ensureSensorsIsMutable();
+          sensors_.add(builderForValue.build());
+          onChanged();
+        } else {
+          sensorsBuilder_.addMessage(builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public Builder addSensors(
+          int index, com.pulse.messages.Messages.Sensor.Builder builderForValue) {
+        if (sensorsBuilder_ == null) {
+          ensureSensorsIsMutable();
+          sensors_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          sensorsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public Builder addAllSensors(
+          java.lang.Iterable<? extends com.pulse.messages.Messages.Sensor> values) {
+        if (sensorsBuilder_ == null) {
+          ensureSensorsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, sensors_);
+          onChanged();
+        } else {
+          sensorsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public Builder clearSensors() {
+        if (sensorsBuilder_ == null) {
+          sensors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          sensorsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public Builder removeSensors(int index) {
+        if (sensorsBuilder_ == null) {
+          ensureSensorsIsMutable();
+          sensors_.remove(index);
+          onChanged();
+        } else {
+          sensorsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public com.pulse.messages.Messages.Sensor.Builder getSensorsBuilder(
+          int index) {
+        return getSensorsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public com.pulse.messages.Messages.SensorOrBuilder getSensorsOrBuilder(
+          int index) {
+        if (sensorsBuilder_ == null) {
+          return sensors_.get(index);  } else {
+          return sensorsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public java.util.List<? extends com.pulse.messages.Messages.SensorOrBuilder> 
+           getSensorsOrBuilderList() {
+        if (sensorsBuilder_ != null) {
+          return sensorsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(sensors_);
+        }
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public com.pulse.messages.Messages.Sensor.Builder addSensorsBuilder() {
+        return getSensorsFieldBuilder().addBuilder(
+            com.pulse.messages.Messages.Sensor.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public com.pulse.messages.Messages.Sensor.Builder addSensorsBuilder(
+          int index) {
+        return getSensorsFieldBuilder().addBuilder(
+            index, com.pulse.messages.Messages.Sensor.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .pulse.Sensor sensors = 1;</code>
+       */
+      public java.util.List<com.pulse.messages.Messages.Sensor.Builder> 
+           getSensorsBuilderList() {
+        return getSensorsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.pulse.messages.Messages.Sensor, com.pulse.messages.Messages.Sensor.Builder, com.pulse.messages.Messages.SensorOrBuilder> 
+          getSensorsFieldBuilder() {
+        if (sensorsBuilder_ == null) {
+          sensorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.pulse.messages.Messages.Sensor, com.pulse.messages.Messages.Sensor.Builder, com.pulse.messages.Messages.SensorOrBuilder>(
+                  sensors_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          sensors_ = null;
+        }
+        return sensorsBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:pulse.SensorList)
@@ -3348,13 +3808,15 @@ public final class Messages {
   static {
     java.lang.String[] descriptorData = {
       "\n\037resources/protos/messages.proto\022\005pulse" +
-      "\"\026\n\006Sensor\022\014\n\004name\030\001 \001(\t\"\033\n\rSensorCreate" +
-      "d\022\n\n\002id\030\001 \001(\t\"\033\n\nSensorList\022\r\n\005names\030\001 \003" +
-      "(\t\";\n\017MeasurementList\022(\n\014measurements\030\001 " +
-      "\003(\0132\022.pulse.Measurement\"\\\n\013Measurement\022\n" +
-      "\n\002id\030\001 \001(\003\022\021\n\tsensor_id\030\002 \001(\t\022\021\n\ttimesta" +
-      "mp\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\r\n\005value\030\005 \001(\002B\036\n" +
-      "\022com.pulse.messagesB\010Messagesb\006proto3"
+      "\"5\n\006Sensor\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\021\n\t" +
+      "timestamp\030\003 \001(\t\"\033\n\rSensorCreated\022\n\n\002id\030\001" +
+      " \001(\t\",\n\nSensorList\022\036\n\007sensors\030\001 \003(\0132\r.pu" +
+      "lse.Sensor\";\n\017MeasurementList\022(\n\014measure" +
+      "ments\030\001 \003(\0132\022.pulse.Measurement\"\\\n\013Measu" +
+      "rement\022\n\n\002id\030\001 \001(\003\022\021\n\tsensor_id\030\002 \001(\t\022\021\n" +
+      "\ttimestamp\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\r\n\005value\030" +
+      "\005 \001(\002B\036\n\022com.pulse.messagesB\010Messagesb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3365,7 +3827,7 @@ public final class Messages {
     internal_static_pulse_Sensor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pulse_Sensor_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Id", "Name", "Timestamp", });
     internal_static_pulse_SensorCreated_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_pulse_SensorCreated_fieldAccessorTable = new
@@ -3377,7 +3839,7 @@ public final class Messages {
     internal_static_pulse_SensorList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pulse_SensorList_descriptor,
-        new java.lang.String[] { "Names", });
+        new java.lang.String[] { "Sensors", });
     internal_static_pulse_MeasurementList_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_pulse_MeasurementList_fieldAccessorTable = new

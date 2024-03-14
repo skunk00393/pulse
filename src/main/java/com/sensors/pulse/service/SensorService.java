@@ -9,7 +9,7 @@ public interface SensorService {
 
     Sensor addSensor(String name);
 
-    List<String> getAllNames(Timestamp before, Timestamp after);
+    List<Sensor> getAllSensors(Timestamp before, Timestamp after);
 
     Sensor getById(String sensorId);
 

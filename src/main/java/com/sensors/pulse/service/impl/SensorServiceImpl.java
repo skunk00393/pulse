@@ -26,8 +26,8 @@ public class SensorServiceImpl implements SensorService {
     }
 
     @Override
-    public List<String> getAllNames(Timestamp before, Timestamp after) {
-        return sensorRepo.getAllNames(before, after);
+    public List<Sensor> getAllSensors(Timestamp before, Timestamp after) {
+        return sensorRepo.getAllSensors(before, after);
     }
 
     @Override

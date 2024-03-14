@@ -35,9 +35,15 @@ public class SensorController {
     @GetMapping("/list")
     Messages.SensorList getSensors(@RequestParam(required = false) Timestamp before,
                                    @RequestParam(required = false) Timestamp after) {
-        List<String> sensorList = sensorService.getAllNames(before, after);
+        List<Sensor> sensorList = sensorService.getAllSensors(before, after);
         Messages.SensorList.Builder sensorListBuilder = Messages.SensorList.newBuilder();
-        sensorListBuilder.addAllNames(sensorList);
+        Messages.Sensor.Builder sensorBuilder = Messages.Sensor.newBuilder();
+        sensorList.forEach(sensor -> {
+            sensorBuilder.setId(sensor.getId().toString());
+            sensorBuilder.setName(sensor.getName());
+            sensorBuilder.setTimestamp(sensor.getCreatedAt().toString());
+            sensorListBuilder.addSensors(sensorBuilder.build());
+        });
         return sensorListBuilder.build();
     }
 }

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -34,6 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
+@ActiveProfiles("test")
 class PulseApplicationTests {
 
     @Autowired
@@ -45,11 +47,12 @@ class PulseApplicationTests {
     @Autowired
     private SensorService sensorService;
 
-    private static Sensor sensor;
+    private Sensor sensor;
 
+    //This is done poorly, needs to be run only once
     @BeforeEach
     public void setup(WebApplicationContext wac) throws Exception {
-        this.mvc = MockMvcBuilders.webAppContextSetup(wac).build();
+        mvc = MockMvcBuilders.webAppContextSetup(wac).build();
         initData();
     }
 

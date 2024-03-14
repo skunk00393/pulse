@@ -4,7 +4,9 @@ option java_package = "com.pulse.messages";
 option java_outer_classname = "Messages";
 
 message Sensor {
-  string name = 1;
+  string id = 1;
+  string name = 2;
+  string timestamp = 3;
 }
 
 message SensorCreated {
@@ -12,7 +14,7 @@ message SensorCreated {
 }
 
 message SensorList {
-  repeated string names = 1;
+  repeated Sensor sensors = 1;
 }
 
 message MeasurementList {

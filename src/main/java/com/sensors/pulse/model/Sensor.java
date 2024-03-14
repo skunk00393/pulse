@@ -20,6 +20,8 @@ public class Sensor {
 
     @Getter
     private String name;
+
+    @Getter
     private Timestamp createdAt;
     @OneToMany(mappedBy = "sensor", fetch = FetchType.LAZY)
     private Set<Measurement> measurements;

@@ -11,10 +11,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface SensorRepo extends JpaRepository<Sensor, String> {
-    @Query("SELECT s.name FROM Sensor s WHERE" +
+    @Query("SELECT s FROM Sensor s WHERE" +
             "(CAST(:before as string) IS NULL OR s.createdAt <= CAST(CAST(:before AS STRING) AS TIMESTAMP)) AND " +
             "(CAST(:after as string) IS NULL OR s.createdAt >= CAST(CAST(:after AS STRING) AS TIMESTAMP))")
-    public List<String> getAllNames(Timestamp before, Timestamp after);
+    List<Sensor> getAllSensors(Timestamp before, Timestamp after);
 
-    public Optional<Sensor> findSensorById(UUID id);
+    Optional<Sensor> findSensorById(UUID id);
 }
