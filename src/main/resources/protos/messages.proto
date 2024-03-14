@@ -1,0 +1,29 @@
+syntax = "proto3";
+package pulse;
+option java_package = "com.pulse.messages";
+option java_outer_classname = "Messages";
+
+message Sensor {
+  string name = 1;
+}
+
+message SensorCreated {
+  string id = 1;
+}
+
+message SensorList {
+  repeated string names = 1;
+}
+
+message MeasurementList {
+  repeated Measurement measurements = 1;
+
+}
+
+message Measurement {
+  int64 id = 1;
+  string sensor_id = 2;
+  string timestamp = 3;
+  string type = 4;
+  float value = 5;
+}
