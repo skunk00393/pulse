@@ -18,6 +18,9 @@ public class SensorController {
         this.sensorService = sensorService;
     }
 
+    /*
+        Creates a new sensor
+     */
     @PostMapping("/new")
     Messages.SensorCreated addSensor(@RequestParam("name") String name){
         Sensor sensor = sensorService.addSensor(name);
@@ -26,6 +29,9 @@ public class SensorController {
         return sensorBuilder.build();
     }
 
+    /*
+        Lists all sensor names created either before timestamp, after timestamp, both or neither
+     */
     @GetMapping("/list")
     Messages.SensorList getSensors(@RequestParam(required = false) Timestamp before,
                                    @RequestParam(required = false) Timestamp after) {

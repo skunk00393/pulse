@@ -19,6 +19,9 @@ public class MeasurementController {
         this.measurementService = measurementService;
     }
 
+    /*
+        Adds a new measurement by its type only if the sensor exists
+    */
     @PostMapping("/new")
     Messages.Measurement addMeasurement(@RequestParam("sensorId") String sensorId,
                                         @RequestParam("timestamp") Timestamp timestamp,
@@ -33,6 +36,9 @@ public class MeasurementController {
         return measurementBuilder.build();
     }
 
+    /*
+        Lists all the measurements by a sensor measured either before timestamp, after timestamp, both or neither
+    */
     @GetMapping("/list/{sensorId}")
     Messages.MeasurementList listMeasurements(@PathVariable String sensorId,
                                               @RequestParam(required = false) Timestamp before,
